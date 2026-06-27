@@ -1,0 +1,52 @@
+seed: 42
+
+exp:
+  root_dir: outputs
+  exp_name: image_domain_view18
+
+data:
+  train_ifbp_dir: ./dataset/dataset_view18/train/input
+  train_gt_dir: ./dataset/dataset_view18/train/gt
+
+  valid_ifbp_dir: ./dataset/dataset_view18/valid/input
+  valid_gt_dir: ./dataset/dataset_view18/valid/gt
+
+  test_ifbp_dir: ./dataset/dataset_view18/test/input
+  test_gt_dir: ./dataset/dataset_view18/test/gt
+
+model:
+  in_c: 1
+  out_c: 1
+  stage1_width: 32
+  stage2_width: 32
+  num_cab: 4
+
+train:
+  num_epochs: 200
+  batch_size: 8
+  num_workers: 4
+  pin_memory: true
+  amp: true
+  grad_clip: 1.0
+
+optimizer:
+  lr: 0.0003
+
+scheduler:
+  warmup_epochs: 5
+  min_lr: 0.000001
+
+loss:
+  lambda_stage1: 0.1
+
+early_stopping:
+  patience: 50
+  mode: max
+  min_delta: 0.0
+
+code_files:
+  - ImageDomain_train.py
+  - model/Image_Net.py
+  - utils/train_utils.py
+  - utils/visual_utils.py
+  - configs/image_view18.yaml

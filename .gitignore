@@ -1,0 +1,23 @@
+# 数据集相关
+dataset/
+dataset_code/
+
+# 模型输出、日志、权重
+outputs/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 图像、数组文件
+*.npy
+*.png
+*.jpg
+
+# 编辑器缓存、系统文件
+.idea/
+.vscode/
+.DS_Store
+*.swp
